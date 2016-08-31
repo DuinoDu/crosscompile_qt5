@@ -1,10 +1,10 @@
 ./configure -v \
--prefix /home/duino/nfs/qt5 \
+-prefix /usr/local/qt5 \
 -release \
 -make libs \
 -make examples -nomake tools \
--xplatform linux-arm-hisiv400-gnueabi-g++ \
--arch arm
+-xplatform linux-arm-hisiv400-g++ \
+-arch arm \
 -optimized-qmake \
 -pch \
 -no-sse2 \
@@ -17,8 +17,6 @@
 -no-separate-debug-info \
 -no-qml-debug \
 -no-dbus \
--no-webkit \
--no-webengine \
 -c++11 \
 -confirm-license -opensource \
 -no-gtkstyle -qt-freetype \
@@ -27,6 +25,4 @@
 -eglfs \
 -linuxfb \
 -no-directfb \
--no-xcb \
--no-kms \
--no-gbm 
+-no-xcb

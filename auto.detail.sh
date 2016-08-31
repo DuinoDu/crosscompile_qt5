@@ -3,8 +3,9 @@
 ##########
 # Step 1 #
 ##########
+cd ..
 tar -zxvf qt-everywhere-opensource-src-5.5.1.tar.gz
-
+cd crosscompile_qt5
 
 ##########
 # Step 2 #
@@ -18,13 +19,14 @@ tar -zxvf qt-everywhere-opensource-src-5.5.1.tar.gz
 # Step 3 #
 ##########
 # add mkspecs file
-cp -r linux-arm-hisiv400-gnueabi-g++ ../qt-everywhere-opensource-src-5.5.1/qtbase/mkspecs/
+cp linux-arm-hisiv400-g++ -r ../qt-everywhere-opensource-src-5.5.1/qtbase/mkspecs/
 
 
 ##########
 # Step 4 #
 ##########
 # edit qtbase/src/gui/opengl/qopenglfunctions.cpp
+cp qopenglfunctions.cpp ../qt-everywhere-opensource-src-5.5.1/qtbase/src/gui/opengl/
 
 # bool QOpenGLES3Helper::init()
 # {
@@ -61,6 +63,7 @@ cp simsun.ttf ../qt-everywhere-opensource-src-5.5.1/qtbase/lib/fonts/
 # Step 6 #
 ##########
 # edit qtbase/src/gui/text/qplatformfontdatabase.cpp
+cp qplatformfontdatabase.cpp ../qt-everywhere-opensource-src-5.5.1/qtbase/src/gui/text/
 
 # void QPlatformFontDatabase::populateFontDatabase()
 # {
@@ -93,8 +96,8 @@ cp simsun.ttf ../qt-everywhere-opensource-src-5.5.1/qtbase/lib/fonts/
 cp build-5.5.1.sh  ../qt-everywhere-opensource-src-5.5.1/
 cd ../qt-everywhere-opensource-src-5.5.1
 ./configure
-make -j5
-make install
+#make -j5
+#make install
 
 
 
